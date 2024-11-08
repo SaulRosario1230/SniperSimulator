@@ -1,0 +1,91 @@
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+
+using namespace std;
+
+void obtenerDist(int nivel, int &distancia, int min = 10, int max = 20) {
+    unsigned long tiempo = time(0); 
+    distancia = (tiempo % (max - min + 1)) + min;
+}
+
+void Menu(int &arma) {
+    bool seleccion = false;
+    
+    while (!seleccion) {
+        cout << "Elige tu arma preferida:\n";
+        cout << "1. Sniper\n";
+        cout << "2. Rifle\n";
+        cout << "Ingresa el número de tu elección: ";
+        cin >> arma;
+        
+        if (arma >= 1 && arma <= 3) {
+            seleccion = true; 
+        } else {
+            cout << "¡Opción no válida! Por favor ingresa un número entre 1 y 3.\n";
+        }
+    }
+}
+
+void Monstruo() {
+    
+    cout << "(o o)\n";
+    cout<< "( V )\n";
+}
+
+void jugarNivel(int nivel, bool & juego) {
+    int distancia;
+    int disparos = 3;
+    int arma;
+    int distanciaDis;
+
+    obtenerDist(nivel, distancia, 10, nivel * 10 + 10); 
+
+    cout << "\nNivel " << nivel << ": El monstruo está a una distancia de " << distancia << " metros.\n";
+    Monstruo(); 
+
+    Menu(arma);
+
+    cout << "Tienes 3 intentos.\n";
+
+    while (disparos > 0) {
+        cout << "Intento " << (4 - disparos) << " de 3: ¿A qué distancia vas a disparar? ";
+        cin >> distanciaDis;
+
+        if (distanciaDis == distancia) {
+            cout << "¡Lo lograste! Has eliminado al monstruo.\n";
+            return;  
+        } else {
+            cout << "Fallaste, vuelve a intentarlo.\n";
+            disparos--;
+        }
+    }
+
+    cout << "Has perdido todos los intentos. El monstruo te ha matado.\n";
+    juego = false;  
+}
+
+int main() {
+    int nivel = 1;
+    bool juego = true;
+
+    cout << "Bienvenido al juego de eliminar monstruos!\n";
+    cout << "Te enfrentarás a varios monstruos en 3 niveles.\n";
+
+    while (nivel <= 3 && juego) {
+        cout << "\n--- Nivel " << nivel << " ---\n";
+        jugarNivel(nivel, juego);  
+
+        if (juego) {
+            nivel++; 
+        }
+    }
+
+    if (juego) {
+        cout << "¡Felicidades, has derrotado todos los monstruos y completado todos los niveles!\n";
+    } else {
+        cout << "El juego ha terminado.\n";
+    }
+
+    return 0;  
+}
