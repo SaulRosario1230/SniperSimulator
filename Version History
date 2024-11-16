@@ -23,8 +23,8 @@ Se implementa la lógica para manejar intentos fallidos y terminar el juego si e
 Se introduce la función Menu para permitir al jugador seleccionar un arma (aunque actualmente la selección no afecta el juego).
 Las opciones de armas (Sniper, Rifle) se presentan, pero no hay diferenciación en su comportamiento.
 
-Versión 5:
-Mejoras visuales y modularización:
+
+-Mejoras visuales y modularización:
 
 Se introduce la función Monstruo para mostrar un diseño básico del monstruo en ASCII art.
 Las funciones están más modularizadas (Menu, jugarNivel, Monstruo), mejorando la organización del código.
