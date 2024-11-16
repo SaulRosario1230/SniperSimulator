@@ -1,1 +1,30 @@
-Version 1.00
+Version 1.0
+-Funcionalidad inicial del juego:
+
+Implementación básica de un juego donde el usuario dispara a un monstruo.
+Uso de un solo nivel con una distancia fija para el monstruo.
+Sin armas, solo una entrada para la distancia.
+
+
+-Introducción de múltiples niveles y distancias:
+
+Se introduce la matriz monstruos para manejar diferentes distancias en cada nivel.
+Se agregó un bucle para iterar entre niveles y finalizar el juego al superar todos los niveles o al perder.
+
+
+-Añadido de intentos limitados:
+
+Se agrega la variable intentos para limitar el número de disparos que el jugador puede realizar.
+Se implementa la lógica para manejar intentos fallidos y terminar el juego si el jugador no acierta.
+
+
+-Creación del menú de armas:
+
+Se introduce la función Menu para permitir al jugador seleccionar un arma (aunque actualmente la selección no afecta el juego).
+Las opciones de armas (Sniper, Rifle) se presentan, pero no hay diferenciación en su comportamiento.
+
+Versión 5:
+Mejoras visuales y modularización:
+
+Se introduce la función Monstruo para mostrar un diseño básico del monstruo en ASCII art.
+Las funciones están más modularizadas (Menu, jugarNivel, Monstruo), mejorando la organización del código.
